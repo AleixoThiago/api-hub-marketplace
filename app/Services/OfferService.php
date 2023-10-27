@@ -3,11 +3,9 @@
 namespace App\Services;
 
 use App\Events\OfferUpdated;
-use App\Models\Product;
 use App\Repositories\Interfaces\OfferRepositoryInterface;
 use App\Services\Interfaces\OfferServiceInterface;
 use App\Services\Interfaces\ProductServiceInterface;
-use Illuminate\Bus\Batch;
 use Illuminate\Support\Facades\Log;
 
 class OfferService implements OfferServiceInterface
@@ -26,14 +24,16 @@ class OfferService implements OfferServiceInterface
     /**
      * Método responsável por chamar a atualização de ofertas
      *
-     * @param  array $data Dados da requisição
+     * @param  array  $data Dados da requisição
      * @return void
      */
     public function update(array $data)
     {
-        if (!isset($data['product_id'])) return;
+        if (! isset($data['product_id'])) {
+            return;
+        }
 
-        $product       = $this->productService->getProductById($data['product_id']);
+        $product = $this->productService->getProductById($data['product_id']);
         $productOffers = $product->offers;
 
         $updateIds = [];
@@ -44,6 +44,7 @@ class OfferService implements OfferServiceInterface
         if (empty($updateIds)) {
             Log::channel('hubOfferUpdate')
                 ->info("O produto de ID {$product->id} não possui vínculo com ofertas no marketplace.");
+
             return;
         }
 
@@ -55,25 +56,25 @@ class OfferService implements OfferServiceInterface
     /**
      * Método responsável por chamar a atualização de ofertas
      *
-     * @param  object $product Dados do produto
+     * @param  object  $product Dados do produto
      * @return array
      */
     public function getOfferUpdateData(object $product)
     {
         return [
-            'status'         => $this->offerRepository->productStatusCompare($product->status),
-            'price'          => $product->price,
-            'sale_price'     => $product->promotional_price,
+            'status' => $this->offerRepository->productStatusCompare($product->status),
+            'price' => $product->price,
+            'sale_price' => $product->promotional_price,
             'sale_starts_on' => $product->promotion_starts_on,
-            'sale_ends_on'   => $product->promotion_ends_on,
-            'stock'          => $product->quantity,
+            'sale_ends_on' => $product->promotion_ends_on,
+            'stock' => $product->quantity,
         ];
     }
 
     /**
      * Método responsável por chamar o envio de atualização de oferta ao marketplace
      *
-     * @param  array $offerIds IDs das ofertas
+     * @param  array  $offerIds IDs das ofertas
      * @return void
      */
     public function sendMarketplaceOfferUpdate(array $offerIds)
@@ -89,7 +90,7 @@ class OfferService implements OfferServiceInterface
     /**
      * Método responsável por retornar os dados para a request
      *
-     * @param  array $offer Dados de uma oferta
+     * @param  array  $offer Dados de uma oferta
      * @return array
      */
     public function getRequestData(array $offer)

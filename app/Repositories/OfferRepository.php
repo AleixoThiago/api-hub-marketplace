@@ -12,12 +12,12 @@ class OfferRepository implements OfferRepositoryInterface
     /**
      * Constante que armazena a URL de notificação do marketplace
      */
-    const MARKETPLACE_NOTIFICATION_URL = "https://demo8880419.mockable.io/webhook";
+    const MARKETPLACE_NOTIFICATION_URL = 'https://demo8880419.mockable.io/webhook';
 
     /**
      * Método construtor da classe
      *
-     * @param  Offer $offer Instância de Offer
+     * @param  Offer  $offer Instância de Offer
      * @return void
      */
     public function __construct(
@@ -28,7 +28,7 @@ class OfferRepository implements OfferRepositoryInterface
     /**
      * Método responsável por retornar ofertas com base em um array de IDs
      *
-     * @param  array $offerIds IDs das ofertas
+     * @param  array  $offerIds IDs das ofertas
      * @return array
      */
     public function getOffersById(array $offerIds)
@@ -39,8 +39,8 @@ class OfferRepository implements OfferRepositoryInterface
     /**
      * Método responsável por atualizar ofertas em massa
      *
-     * @param  array $offerIds   IDs das ofertas
-     * @param  array $updateData Dados de atualização
+     * @param  array  $offerIds   IDs das ofertas
+     * @param  array  $updateData Dados de atualização
      * @return void
      */
     public function updateOffers(array $offerIds, array $updateData)
@@ -48,20 +48,20 @@ class OfferRepository implements OfferRepositoryInterface
         $this->offer->whereIn('id', $offerIds)->update($updateData);
 
         Log::channel('hubOfferUpdate')
-            ->info("Ofertas (" . implode(',', $offerIds) . ") atualizadas. Dados: " . json_encode($updateData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            ->info('Ofertas ('.implode(',', $offerIds).') atualizadas. Dados: '.json_encode($updateData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 
     /**
      * Método responsável por comparar e converter o valor do status do produto para status da oferta
      *
-     * @param  string $status Status a ser comparado
+     * @param  string  $status Status a ser comparado
      * @return string
      */
     public function productStatusCompare(string $status)
     {
         $statusCompareArray = [
-            'active'   => 'active',
-            'inactive' => 'paused'
+            'active' => 'active',
+            'inactive' => 'paused',
         ];
 
         return $statusCompareArray[$status];
@@ -70,7 +70,7 @@ class OfferRepository implements OfferRepositoryInterface
     /**
      * Método responsável por enviar uma requisição de atualização ao marketplace
      *
-     * @param  array $requestData dados da requisição
+     * @param  array  $requestData dados da requisição
      * @return void
      */
     public function sendMarketplaceOfferUpdate(array $requestData)
@@ -78,6 +78,6 @@ class OfferRepository implements OfferRepositoryInterface
         $response = Http::post(self::MARKETPLACE_NOTIFICATION_URL, $requestData);
 
         Log::channel('hubOfferUpdate')
-            ->info("Notificação enviada ao marketplace (reponse {$response->status()}). Request: " . json_encode($requestData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+            ->info("Notificação enviada ao marketplace (reponse {$response->status()}). Request: ".json_encode($requestData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 }

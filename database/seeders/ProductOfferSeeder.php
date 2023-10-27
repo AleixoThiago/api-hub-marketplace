@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\ProductOffer;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductOfferSeeder extends Seeder
@@ -22,19 +21,19 @@ class ProductOfferSeeder extends Seeder
         return [
             [
                 'product_id' => 1,
-                'offer_id'   => 1,
+                'offer_id' => 1,
             ],
             [
                 'product_id' => 1,
-                'offer_id'   => 2,
+                'offer_id' => 2,
             ],
             [
                 'product_id' => 2,
-                'offer_id'   => 3,
+                'offer_id' => 3,
             ],
             [
                 'product_id' => 3,
-                'offer_id'   => 4,
+                'offer_id' => 4,
             ],
         ];
     }

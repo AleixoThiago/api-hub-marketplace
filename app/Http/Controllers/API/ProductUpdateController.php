@@ -23,20 +23,20 @@ class ProductUpdateController extends Controller
     /**
      * Método responsável por lidar com o recebimento (via webhook) de uma atualização de produto
      *
-     * @param  ProductUpdateRequest      $request Instância de ProductUpdateRequest
+     * @param  ProductUpdateRequest  $request Instância de ProductUpdateRequest
      * @return \Illuminate\Http\Response
      */
     public function handleProductUpdate(ProductUpdateRequest $request)
     {
         $updateData = $request->validated();
 
-
         $message = 'Atualização de produto recebida com sucesso.';
-        $code    = Response::HTTP_OK;
-        if (!$this->productUpdateService->updateProduct($updateData)) {
+        $code = Response::HTTP_OK;
+        if (! $this->productUpdateService->updateProduct($updateData)) {
             $message = 'Produto para atualização não encontrado.';
-            $code    = Response::HTTP_NOT_FOUND;
+            $code = Response::HTTP_NOT_FOUND;
         }
+
         return response($message, $code);
     }
 }

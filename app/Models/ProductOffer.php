@@ -18,6 +18,6 @@ class ProductOffer extends Model
      */
     protected $fillable = [
         'offer_id',
-        'product_id'
+        'product_id',
     ];
 }

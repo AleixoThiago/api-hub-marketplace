@@ -8,8 +8,6 @@ use App\Events\ProductUpdateReceived;
 use App\Listeners\OfferUpdatedListener;
 use App\Listeners\ProductUpdatedListener;
 use App\Listeners\ProductUpdateReceivedListener;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 

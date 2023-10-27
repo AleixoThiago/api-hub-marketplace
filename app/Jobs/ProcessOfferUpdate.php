@@ -27,7 +27,9 @@ class ProcessOfferUpdate implements ShouldQueue
      */
     public function handle(): void
     {
-        if(empty($this->updateData)) return;
+        if (empty($this->updateData)) {
+            return;
+        }
 
         $this->offerService->update($this->updateData);
     }
