@@ -27,7 +27,9 @@ class SendMarketplaceWebhook implements ShouldQueue
      */
     public function handle(): void
     {
-        if(empty($this->offerIds)) return;
+        if (empty($this->offerIds)) {
+            return;
+        }
         $this->offerService->sendMarketplaceOfferUpdate($this->offerIds);
     }
 }

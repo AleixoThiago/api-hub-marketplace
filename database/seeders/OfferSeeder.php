@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Offer;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OfferSeeder extends Seeder
@@ -21,55 +20,55 @@ class OfferSeeder extends Seeder
     {
         return [
             [
-                'reference'      => 'cra-001',
-                'title'          => 'Camiseta regata 100% algodão',
-                'status'         => 'active',
-                'price'          => 29.90,
-                'sale_price'     => 19.90,
+                'reference' => 'cra-001',
+                'title' => 'Camiseta regata 100% algodão',
+                'status' => 'active',
+                'price' => 29.90,
+                'sale_price' => 19.90,
                 'sale_starts_on' => '2023-01-01 00:00:00',
-                'sale_ends_on'   => '2023-12-31 23:59:59',
-                'stock'          => 10,
+                'sale_ends_on' => '2023-12-31 23:59:59',
+                'stock' => 10,
             ],
             [
-                'reference'      => 'crvc-001',
-                'title'          => 'Camiseta regata várias cores',
-                'status'         => 'active',
-                'price'          => 29.90,
-                'sale_price'     => 19.90,
+                'reference' => 'crvc-001',
+                'title' => 'Camiseta regata várias cores',
+                'status' => 'active',
+                'price' => 29.90,
+                'sale_price' => 19.90,
                 'sale_starts_on' => '2023-01-01 00:00:00',
-                'sale_ends_on'   => '2023-12-31 23:59:59',
-                'stock'          => 10,
+                'sale_ends_on' => '2023-12-31 23:59:59',
+                'stock' => 10,
             ],
             [
-                'reference'      => 'cdrtu-001',
-                'title'          => 'Cropped de renda tamanho único',
-                'status'         => 'active',
-                'price'          => 29.90,
-                'sale_price'     => null,
+                'reference' => 'cdrtu-001',
+                'title' => 'Cropped de renda tamanho único',
+                'status' => 'active',
+                'price' => 29.90,
+                'sale_price' => null,
                 'sale_starts_on' => null,
-                'sale_ends_on'   => null,
-                'stock'          => 12,
+                'sale_ends_on' => null,
+                'stock' => 12,
             ],
             [
-                'reference'      => 'cjtu-001',
-                'title'          => 'Calça jeans tamanho único',
-                'status'         => 'paused',
-                'price'          => 299.99,
-                'sale_price'     => 249.90,
+                'reference' => 'cjtu-001',
+                'title' => 'Calça jeans tamanho único',
+                'status' => 'paused',
+                'price' => 299.99,
+                'sale_price' => 249.90,
                 'sale_starts_on' => '2023-01-01 00:00:00',
-                'sale_ends_on'   => '2023-12-31 23:59:59',
-                'stock'          => 5,
+                'sale_ends_on' => '2023-12-31 23:59:59',
+                'stock' => 5,
             ],
             [
-                'reference'      => 'bjtu-001',
-                'title'          => 'Bermuda jeans tamanho único',
-                'status'         => 'paused',
-                'price'          => 59.90,
-                'sale_price'     => null,
+                'reference' => 'bjtu-001',
+                'title' => 'Bermuda jeans tamanho único',
+                'status' => 'paused',
+                'price' => 59.90,
+                'sale_price' => null,
                 'sale_starts_on' => null,
-                'sale_ends_on'   => null,
-                'stock'          => 0,
-            ]
+                'sale_ends_on' => null,
+                'stock' => 0,
+            ],
         ];
     }
 }

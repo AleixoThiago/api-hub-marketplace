@@ -16,7 +16,6 @@ class ProductUpdateReceivedListener
     /**
      * Handle the event.
      *
-     * @param  ProductUpdateReceived $event
      * @return void
      */
     public function handle(ProductUpdateReceived $event)

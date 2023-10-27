@@ -11,7 +11,7 @@ class ProductRepository implements ProductRepositoryInterface
     /**
      * Método construtor da classe
      *
-     * @param  Product $product Instância de Product
+     * @param  Product  $product Instância de Product
      * @return void
      */
     public function __construct(
@@ -22,7 +22,7 @@ class ProductRepository implements ProductRepositoryInterface
     /**
      * Método reponsável por retornar um produto a partir de seu ID
      *
-     * @param  int     $productId ID do produto
+     * @param  int  $productId ID do produto
      * @return ?object
      */
     public function getProductById(int $productId): ?object
@@ -33,9 +33,9 @@ class ProductRepository implements ProductRepositoryInterface
     /**
      * Método reponsável por atualizar um produto a partir de seu referência
      *
-     * @param  string       $reference Referência do produto
-     * @param  string       $field     Campo para ataulização
-     * @param  float|string $value     Valor da atualização
+     * @param  string  $reference Referência do produto
+     * @param  string  $field     Campo para ataulização
+     * @param  float|string  $value     Valor da atualização
      * @return ?int
      */
     public function updateProductByReference(string $reference, string $field, float|string $value)

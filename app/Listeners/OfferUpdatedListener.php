@@ -16,7 +16,7 @@ class OfferUpdatedListener
     /**
      * Handle the event.
      *
-     * @param  Offer $event
+     * @param  Offer  $event
      * @return void
      */
     public function handle(OfferUpdated $event)

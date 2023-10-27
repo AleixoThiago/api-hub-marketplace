@@ -28,7 +28,9 @@ class ProcessProductUpdate implements ShouldQueue
      */
     public function handle(): void
     {
-        if(empty($this->updateData)) return;
+        if (empty($this->updateData)) {
+            return;
+        }
 
         $this->productService->update($this->updateData);
 

@@ -15,7 +15,7 @@ class ProductUpdateReceived
     /**
      * Construtor do evento de recebimento de webhook de atualização de produto
      *
-     * @param  array $updateData Dados de atualização
+     * @param  array  $updateData Dados de atualização
      * @return void
      */
     public function __construct(array $updateData)

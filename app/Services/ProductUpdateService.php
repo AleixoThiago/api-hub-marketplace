@@ -13,12 +13,12 @@ class ProductUpdateService implements ProductUpdateServiceInterface
     /**
      * Constante que armazena a URL de consulta para validação de produtos
      */
-    const PRODUCT_VALIDATION_BASE_URL = "https://demo8880419.mockable.io/products/";
+    const PRODUCT_VALIDATION_BASE_URL = 'https://demo8880419.mockable.io/products/';
 
     /**
      * Método responsável por realizar as ações de atualização de produto
      *
-     * @param  array $updateData Dados da requisição
+     * @param  array  $updateData Dados da requisição
      * @return bool
      */
     public function updateProduct(array $updateData)
@@ -27,11 +27,13 @@ class ProductUpdateService implements ProductUpdateServiceInterface
 
         Log::channel('hubProductUpdate')->info(
             $isValidProduct
-                ? "Atualização de produto recebida. Dados: " . json_encode($updateData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+                ? 'Atualização de produto recebida. Dados: '.json_encode($updateData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
                 : "Atualização de produto inválido recebida. (ref. {$updateData['product_ref']})"
         );
 
-        if (!$isValidProduct) return false;
+        if (! $isValidProduct) {
+            return false;
+        }
 
         event(new ProductUpdateReceived($updateData));
 
@@ -41,17 +43,17 @@ class ProductUpdateService implements ProductUpdateServiceInterface
     /**
      * Método responsável por validar a existência de um produto a partir da referência
      *
-     * @param  string $productRef Referência do produto
+     * @param  string  $productRef Referência do produto
      * @return bool
      */
     public function validateProduct(string $productRef)
     {
-        $productValidationUrl = self::PRODUCT_VALIDATION_BASE_URL . $productRef;
+        $productValidationUrl = self::PRODUCT_VALIDATION_BASE_URL.$productRef;
 
         $responseStatus = Http::acceptJson()
             ->get($productValidationUrl)
             ->status();
 
-        return ($responseStatus == Response::HTTP_OK);
+        return $responseStatus == Response::HTTP_OK;
     }
 }
