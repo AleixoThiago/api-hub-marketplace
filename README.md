@@ -9,6 +9,8 @@
 
 :small_blue_diamond: [Execução do projeto](#execução-do-projeto)
 
+:small_blue_diamond: [Instruções de integração](#instruções-de-integração)
+
 :small_blue_diamond: [Tecnologias utilizadas](#tecnologias-utilizadas)
 
 :small_blue_diamond: [Autor](#autor)
@@ -69,7 +71,7 @@ Esse projeto possui apenas uma rota **POST**:
 http://127.0.0.1:8000/api/webhook/product-update
 ```
 
-# Estrutura do JSON
+## Estrutura do JSON
 
 Esse rota espera receber um JSON com uma das estruturas a seguir:
 
