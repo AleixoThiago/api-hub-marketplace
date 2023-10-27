@@ -61,6 +61,42 @@ Execute as migrations semeando:
 php artisan migrate --seed
 ```
 
+## Instruções de integração
+
+Esse projeto possui apenas uma rota **POST**:
+
+```
+http://127.0.0.1:8000/api/webhook/product-update
+```
+
+# Estrutura do JSON
+
+Esse rota espera receber um JSON com uma das estruturas a seguir:
+
+```
+{
+    "product_ref": "20231004",
+    "scope": "price",
+    "price": 29.90
+}
+```
+
+```
+{
+    "product_ref": "20231004",
+    "scope": "stock",
+    "stock": 12
+}
+```
+
+```
+{
+    "product_ref": "20231004",
+    "scope": "status",
+    "status": "inactive"
+}
+```
+
 ## Tecnologias utilizadas
 
 -   [PHP 8.1](https://www.php.net/)
